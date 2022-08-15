@@ -58,11 +58,11 @@ exports.handler = async (event, context) => {
         }
     }
   // validate the data coming in is correct
-  const requriedFields = ['email', 'name', 'order'];
+  const requiredFields = ['email', 'name', 'order'];
 
-  // send the sucess on error message
-  for( const field of requriedFields){
-    console.log(`ckecking the field works ${field} good`)
+  // send the success on error message
+  for( const field of requiredFields){
+    // console.log(`checking the field works ${field} good`)
     if(!body[field]){
       return {
         statusCode: 400,
@@ -85,7 +85,7 @@ exports.handler = async (event, context) => {
 
  // send the mail
   const info = await transport.sendMail({
-    from: "slices's slices <da6@kuchlong.sudanesesamurai.com>",
+    from: "slices's slices <kuchlong@kuchlong.sudanesesamurai.com>",
     to: `${body.name} <${body.email}>, order@example.com`,
     subject: " New order",
     html: generateOrderEmail({order: body.order, total: body.total})
