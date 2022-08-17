@@ -86,12 +86,12 @@ exports.handler = async (event, context) => {
  // send the mail
   const info = await transport.sendMail({
     from: "slices's slices <kuchlong@kuchlong.sudanesesamurai.com>",
-    to: `${body.name} <${body.email}>, order@example.com`,
+    to: `${body.name} <${body.email}>`,
     subject: " New order",
     html: generateOrderEmail({order: body.order, total: body.total})
   })
 
-  console.log(info)
+  // console.log(info)
   return {
     statusCode: 200,
     body: JSON.stringify({ message: "Success"})
